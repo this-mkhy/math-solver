@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   height: 40vmin;
@@ -13,26 +11,90 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
+.App {
   min-height: 100vh;
+  background: linear-gradient(to bottom, #f9fafb, #f3f4f6);
+}
+
+.App-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.App-header.scrolled {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  padding: 1.5rem 1rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 0.75rem;
 }
 
-.App-link {
-  color: #61dafb;
+.header-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1f2937;
 }
 
-@keyframes App-logo-spin {
+ .wave-container {
+  position: absolute;
+  inset: 0;
+  height: 8rem;
+  width: 100%;
+  overflow: hidden;
+  z-index: -1
+}
+
+.wave-svg {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  
+} 
+
+
+@keyframes fadeIn {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(-10px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 1s ease-out forwards;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  align-items: center;
+  
 }
